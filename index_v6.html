@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thị Hạnh | Chăm Sóc Sau Sinh & Tắm Bé Tại Nhà</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --pink-light: #fff0f3;
+            --pink-main: #ff85a1;
+            --blue-soft: #e0f2f1;
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; }
+        body { color: var(--text-color); line-height: 1.6; background-color: #fdfbfb; scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 10%; background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--pink-main); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--pink-main); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255,240,243,0.7), rgba(255,240,243,0.7)), 
+                        url('https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=2070') no-repeat center/cover;
+            height: 85vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center; padding: 0 10%;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--pink-main); margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 35px; color: #555; font-weight: 500; }
+
+        .btn {
+            background: var(--pink-main); color: white; padding: 18px 40px;
+            border-radius: 50px; text-decoration: none; font-weight: 700;
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(255,133,161,0.4);
+            display: inline-block; border: none; cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); background: #ff5c8a; box-shadow: 0 8px 20px rgba(255,133,161,0.6); }
+
+        /* General Section */
+        section { padding: 100px 10%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--pink-main); position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; width: 60px; height: 3px; background: var(--pink-main); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 3px; }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+        }
+        .service-item {
+            background: var(--white); padding: 40px; border-radius: 30px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.3s;
+        }
+        .service-item:hover { transform: translateY(-10px); background: var(--pink-light); }
+        .service-item i { font-size: 3rem; color: var(--pink-main); margin-bottom: 20px; }
+        .service-item h3 { margin-bottom: 15px; color: var(--text-color); }
+
+        /* Expert Section */
+        .expert-box {
+            background: var(--white); border-radius: 40px; padding: 60px;
+            display: flex; flex-wrap: wrap; align-items: center; gap: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .expert-img {
+            flex: 1; min-width: 280px; max-width: 350px;
+            border-radius: 30px; object-fit: cover;
+            border: 10px solid var(--pink-light);
+        }
+        .expert-info { flex: 2; min-width: 300px; }
+        .expert-info h3 { font-size: 2rem; color: var(--pink-main); margin-bottom: 10px; }
+        .expert-info ul { list-style: none; margin: 25px 0; }
+        .expert-info li { margin-bottom: 15px; display: flex; align-items: center; font-weight: 500; }
+        .expert-info li i { color: var(--pink-main); margin-right: 15px; font-size: 1.2rem; }
+
+        footer { background: #333; color: white; padding: 60px 10% 30px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        
+        @media (max-width: 768px) {
+            .expert-box { padding: 30px; text-align: center; }
+            .expert-info li { justify-content: center; text-align: left; }
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo"><i class="fas fa-baby-carriage"></i> Hạnh Care</a>
+        <ul class="nav-links">
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#expert">Chuyên gia</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <h1>Nguyễn Thị Hạnh</h1>
+        <p>Chăm sóc sau sinh tại nhà - Tắm bé chuẩn Y khoa. Đồng hành cùng mẹ và bé bằng tất cả tình yêu thương và sự tận tâm.</p>
+        <a href="https://zalo.me/0389348822" class="btn"><i class="fab fa-facebook-messenger"></i> NHẮN TIN ĐẶT LỊCH NGAY</a>
+    </header>
+
+    <section id="services">
+        <div class="section-title">
+            <h2>Dịch vụ chuyên nghiệp</h2>
+            <p>Giải pháp chăm sóc toàn diện cho sức khỏe của Mẹ và Bé</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="fas fa-bath"></i>
+                <h3>Tắm Bé Chuẩn Y Khoa</h3>
+                <p>Vệ sinh rốn, mắt, mũi họng và massage giúp bé thư giãn, ngủ ngon.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-female"></i>
+                <h3>Chăm Sóc Sau Sinh</h3>
+                <p>Hỗ trợ phục hồi sức khỏe, vệ sinh vết mổ/vết khâu và xông hơ tại nhà.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-spa"></i>
+                <h3>Massage Bầu Tại Nhà</h3>
+                <p>Giảm đau nhức, thư giãn cơ thể và tinh thần cho mẹ trong thai kỳ.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-tint-slash"></i>
+                <h3>Thông Tắc Tia Sữa</h3>
+                <p>Phương pháp nhẹ nhàng, hiệu quả giúp thông sữa và giảm đau cho mẹ.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expert" style="background-color: var(--pink-light);">
+        <div class="section-title">
+            <h2>Chuyên gia tận tâm</h2>
+            <p>Kiến thức chuyên môn đi đôi với sự nhẹ nhàng</p>
+        </div>
+        <div class="expert-box">
+            <img src="C:\Users\Administrator\Desktop\Dịch vụ tắm mẹ và bé\anh8.jpg" alt="Nguyễn Thị Hạnh" class="expert-img">
+            <div class="expert-info">
+                <h3>Cô: Nguyễn Thị Hạnh</h3>
+                <p>Với kinh nghiệm dày dặn trong việc chăm sóc trẻ sơ sinh và mẹ bầu, tôi cam kết mang lại sự an tâm tuyệt đối cho gia đình bạn.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Tắm bé sơ sinh chuẩn quy trình y khoa</li>
+                    <li><i class="fas fa-check-circle"></i> Massage bầu và chăm sóc sau sinh chuyên sâu</li>
+                    <li><i class="fas fa-check-circle"></i> Thông tắc tia sữa nhanh chóng, không đau</li>
+                    <li><i class="fas fa-check-circle"></i> Luôn lắng nghe và hỗ trợ giải đáp thắc mắc của mẹ</li>
+                </ul>
+                <a href="tel:0389348822" class="btn" style="background: #333;"><i class="fas fa-phone-alt"></i> SĐT: 0389 348 822</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <h3 style="color: var(--pink-main); margin-bottom: 20px;">Dịch Vụ Mẹ & Bé</h3>
+                <p>Chăm sóc tận tình như người thân trong gia đình. Sự hài lòng của mẹ và nụ cười của bé là niềm hạnh phúc của tôi.</p>
+            </div>
+            <div>
+                <h4>Thông tin liên hệ</h4>
+                <p><i class="fas fa-user"></i> Nguyễn Thị Hạnh</p>
+                <p><i class="fas fa-phone"></i> Hotline: 0389 348 822</p>
+                <p><i class="fas fa-map-marker-alt"></i> Phục vụ tại nhà (khu vực lân cận)</p>
+            </div>
+            <div>
+                <h4>Dịch vụ chính</h4>
+                <p>• Tắm bé chuẩn Y khoa</p>
+                <p>• Massage bầu tại nhà</p>
+                <p>• Thông tắc tia sữa</p>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #555; margin-top: 40px; padding-top: 20px; font-size: 0.8rem; color: #bbb;">
+            &copy; 2026 Nguyễn Thị Hạnh Service. Thiết kế theo yêu cầu khách hàng.
+        </div>
+    </footer>
+
+    <script>
+        // Hiệu ứng cuộn mượt cho các liên kết menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
